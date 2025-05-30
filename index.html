@@ -1,76 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ashish Developing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AshuWeb - Next Level</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap');
+
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+  }
+
+  .typing {
+    border-right: .15em solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 22ch;
+    animation: typing 4s steps(22), blink 0.7s infinite step-end alternate;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 22ch }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+
+  /* Parallax background shapes */
+  .parallax-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite alternate;
+  }
+
+  .shape1 {
+    width: 300px; height: 300px;
+    background: #ff007f;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+
+  .shape2 {
+    width: 200px; height: 200px;
+    background: #00fff7;
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+
+  @keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(20px); }
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  nav .logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #00fff7;
+  }
+
+</style>
 </head>
 <body>
-  <canvas id="bgCanvas"></canvas>
-
-  <nav class="navbar">
+  <nav>
     <div class="logo">Ashish Developing</div>
-    <ul class="nav-links">
+    <ul>
       <li><a href="#plans">Plans</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <header class="hero">
-    <h1>Create Your Tech-Style Website</h1>
-    <p>Affordable plans with professional design & animations</p>
-    <a href="#plans" class="btn-primary">See Plans</a>
-  </header>
+  <section class="hero">
+    <div class="parallax-shape shape1"></div>
+    <div class="parallax-shape shape2"></div>
 
-  <section id="plans" class="plans-section">
-    <h2>Our Website Plans</h2>
-    <div class="plans-container">
-
-      <div class="plan-card">
-        <h3>Starter Plan</h3>
-        <p class="price">₹30</p>
-        <ul>
-          <li>1-page static website (Home)</li>
-          <li>Mobile-friendly design</li>
-          <li>Personal logo & color theme</li>
-          <li>Contact button</li>
-          <li><strong>Delivery:</strong> 2 Days</li>
-        </ul>
-        <a href="#contact" class="btn-secondary">Order Now</a>
-      </div>
-
-      <div class="plan-card">
-        <h3>Standard Plan</h3>
-        <p class="price">₹100</p>
-        <ul>
-          <li>Up to 3 pages</li>
-          <li>Responsive design</li>
-          <li>Custom layout</li>
-          <li>Basic animations</li>
-          <li>SEO-friendly structure</li>
-          <li><strong>Delivery:</strong> 3–4 Days</li>
-        </ul>
-        <a href="#contact" class="btn-secondary">Order Now</a>
-      </div>
-
-    </div>
+    <h1>Welcome to <span class="typing">Ashish Developing Creations</span></h1>
+    <p>Your gateway to professional, stunning websites.</p>
   </section>
 
-  <section id="contact" class="contact-section">
-    <h2>Contact Me</h2>
-    <p>Got questions or want to start your website? Reach out!</p>
-    <div class="contact-buttons">      
-      <a href="https://discord.gg/tmqyJRc4ew" target="_blank" class="btn-instagram">Discord</a>
-      <a href="lucky.gameryt.01@gmail.com" class="btn-email">Email</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Ashish Developing. All rights reserved.</p>
-  </footer>
-
-  <script src="app.js"></script>
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
